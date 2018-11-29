@@ -15,8 +15,12 @@ run: # Runs the application with Docker
 	@echo "\033[1m\033[36m> Creating Docker containers\033[0m\033[21m"
 	@docker-compose up -d
 	@echo "\033[1m\033[36m> Accessing application container\033[0m\033[21m"
-	@docker-compose exec php bash
+	@docker-compose exec php bash -c "make install && make run"
 
 stop: # Shuts down all Docker containers
 	@echo "\033[1m\033[36m> Shutting down Docker containers\033[0m\033[21m"
 	@docker-compose down
+
+exec: # Log into the running application container
+	@echo "\033[1m\033[36m> Accessing application container\033[0m\033[21m"
+	@docker-compose exec php bash
