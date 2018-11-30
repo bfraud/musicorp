@@ -1,5 +1,5 @@
-const Type = {
+const Types = {
     PRIMARY: 'primary',
 };
 
-export default Type;
+export default Types;
