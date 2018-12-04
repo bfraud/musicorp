@@ -1,12 +1,15 @@
-import React from 'react'
-import Navbar from "../components/Navbar/Navbar";
-import Card from "../components/Card/Card";
-import ButtonTypes from '../constants/Button';
-import img from '../../images/spotify.jpg';
+import React from 'react';
+import PropTypes from 'prop-types';
+import Navbar from "../Navbar/Navbar";
+import Card from "../Card/Card";
+import ButtonTypes from '../../constants/Button';
+import img from '../../../images/spotify.jpg';
 import './style.css';
 
-export default class Home extends React.Component {
+export default class HomePage extends React.Component {
     render() {
+        const { onClickCardButton } = this.props;
+
         return (
             <div className='container-fluid'>
                 <div className='row'>
@@ -20,11 +23,15 @@ export default class Home extends React.Component {
                             text={ 'Connect your favorite music service and start sharing the music you love with your colleagues' }
                             buttonType={ ButtonTypes.PRIMARY }
                             buttonLabel={ "Let's go" }
-                            buttonOnClick={ function() {} }
+                            buttonOnClick={ onClickCardButton }
                         />
                     </div>
                 </div>
             </div>
         );
     }
+};
+
+HomePage.propTypes = {
+    onClickCardButton: PropTypes.func.isRequired,
 };

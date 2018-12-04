@@ -3,7 +3,7 @@ server {
     root /var/www/musicorp/public;
 
     location / {
-        try_files $uri /index.php$is_args$args;
+        try_files $uri /index.php;
     }
 
     location ~ ^/index.php(/|$) {
@@ -14,8 +14,6 @@ server {
         fastcgi_param DOCUMENT_ROOT $realpath_root;
     }
 
-    # return 404 for all other php files not matching the front controller
-    # this prevents access to other php files you don't want to be accessible.
     location ~ \.php$ {
         return 404;
     }
